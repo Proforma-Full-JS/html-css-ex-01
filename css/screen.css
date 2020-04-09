@@ -59,8 +59,6 @@ html{
     font-size: 20px;
 }
 
-
-
 main{
     background-color: #FFEECC;
     display: flex;
@@ -92,25 +90,33 @@ h2{
 }
 
 .the_grid>div{
-    height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
+.golden_div{
+    background-color: rgb(245, 223, 101);
+    background-blend-mode: overlay;
+}
+
+.white_div{
+    background-color: rgb(181, 181, 187);
+    background-blend-mode: overlay;
+}
+
 .first_box{
+    height: 30vh;
     background-image:url("../images/mushroom.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-
+    background-color: gold;
+    background-blend-mode: screen;
 }
 
 .long_box_1{
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    height: 30vh;
     background-image:url("../images/palace.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -118,21 +124,14 @@ h2{
 }
 
 .long_box_2{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    height: 30vh;
     background-image:url("../images/book.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 .high_box{
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    height: 40vh;
+    height: 30vh;
     background-color: yellow;
     background-image:url("../images/cat.jpg");
     background-repeat: no-repeat;
@@ -140,19 +139,17 @@ h2{
 }
 
 .fift_box{
+    height: 30vh;
     background-image:url("../images/leaf.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 .sixth_box{
+    height: 30vh;
     background-image:url("../images/orange.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-}
-
-.golden_filter{
-    filter: contrast(0) sepia(100%) hue-rotate(116deg) brightness(1.4) saturate(0.28);
 }
 
 footer{
@@ -162,7 +159,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .f_link{
@@ -172,6 +170,10 @@ footer{
 }
 
 @media only screen and (min-width: 600px) {
+    main{
+        min-height: 95vh;
+    }
+
     .the_grid{
         height: 70vw;
         display: inline-grid;;
@@ -182,20 +184,44 @@ footer{
     .the_grid>div{
         height: auto;
     }
+
+    .first_box {
+        position: relative;
+      }
+      .module::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url(graphic-to-be-filtered.jpg);
+        filter: grayscale(100%);
+      }
+
+
     .high_box{
         height: 40vh;
     }
-    main{
-        height: 95vh;
+    .long_box_1{
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+    .long_box_2{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    .high_box{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        height: 40vh;
+    }
+    footer{
+        height: 5vh;
     }
     
-}
-@media only screen and (max-width: 1275px ) {
-
-    body{
-        height: 100vh;
-    }
-    main{
-        height: 95vh;
-    }
 }
